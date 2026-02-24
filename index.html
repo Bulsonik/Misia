@@ -75,11 +75,12 @@ Nie chcę udawać, że wszystko jest idealne.
 Ale jesteś dla mnie bardzo ważna i nie chcę Cię stracić.
 </p>
 
-<form name="odpowiedzi" method="POST" data-netlify="true" hidden>
-<input type="hidden" name="form-name" value="odpowiedzi">
-<input type="text" name="pierwszyWybor">
-<input type="text" name="wspomnienia">
-<input type="text" name="finalnaDecyzja">
+<!-- Formularz Netlify -->
+<form name="odpowiedzi" method="POST" data-netlify="true" id="netlifyForm" hidden>
+  <input type="hidden" name="form-name" value="odpowiedzi">
+  <input type="hidden" name="pierwszyWybor" id="pierwszyWybor">
+  <input type="hidden" name="wspomnienia" id="wspomnienia">
+  <input type="hidden" name="finalnaDecyzja" id="finalnaDecyzja">
 </form>
 
 <div id="pierwszePrzyciski">
@@ -113,80 +114,80 @@ Ale jesteś dla mnie bardzo ważna i nie chcę Cię stracić.
 </div>
 
 <script>
+var mojTekst = "Noto co, opowiem Ci pewna historie...17 grudnia przeglądałem sobie yubo, przeglądałem, przeglądałem az w końcu tarfiłem na pwewną Weronikę, a na nazwisko ma Rogozińska, (od razu się w niej zakochałem, od 1 wejrzenia), od razu się w niej zakochałemmmm.i od zaru zauroczyłęm się nią Od 1 dnia kiedy zaczelsimy pisać wiedziałem ze zostaniesz moją zona i matką moich dzieci, (będzie) tylko na razie mamy trudniejszy okres w związku i tyle, wiem tez ze jesteś najwazniejsza osoba w moim zyciu, przy tobie i z toba moje zycie jest już najzlepsze. jesteś moim oczkiem w głowie o które chce dbbac i sie troszczyć. Chce ciebie i tylko chceiebie, jesteś najlepsza i najpiekniejsza, a to ze czasami mnie raznisz to naturalna rzec zjestesmy ludzmi, każdemu może się zdarzyć, ale najwazniejsza jest rozmowa, i wiem ze ty pod wpływem nerwowo i wgl ak gadasz ale ja wiem ze wystarczy szczera rozmowa misiek. I wiem ze jesteśmy w stanie, tyle razy rozmawilaismy i ustalaliśmy co jest dobre a co nie i było normalnie. wiem ze jesteś jedyna kobieta na której mi zależy. Nie umiem bez ciebie zyc,, czyliu nie umuem bez ciebie normalnie funkcjonować, nie umiem normalnie jesc, spac, doślownie bez ciebie nie ma mnie. Jestes majcudoniejsza kobietą iw iem ze tez nie chcesz przekreslac tego tak o. Kocham cie nad zycie,  Naprawde za każdym razem chce wzisac od ciebie ten cały ból żeby przeszedł na mnie zebys ty nie cierpiała(nawet jak jest dzicz). Naprwimy to ja wiem i będzie jak dawniej .wiem ze oboje tego chcemy. i ty nie powiesz ze tego nie chcesz bo wiem ze chcesz ez. I	 tez widzisz ze mamy wzloty i upadki ale jednak jesteśmy jak papuszki nierezłaczki misiek. weź nie ma słwo do opisania jak najmocniej naswiecei cie kocham. wiec jeszcze raz mnnie Posłuchaj mnie kociaku ty mój, widzisz ze nie chce odpuścić💅. Serio tak mi na tobie zalezy i wgl ja wiem ze tobie jezcze tez i nie mow ze nie bo to czuje. Serio jestes moim skarbkiem I moim oczkiem w głowie, kocham cie nad zycie I jestem w stanie zrobic dla ciebie wsyztsko. Widzisz jak można cie kocham ze nawet nie chce odpuscic 💅 serio jestes moim powodem dla którego jestem szczęśliwy, dlatego chce z toba to wsyztsko i wgl. I tez Wiem ze sie klocicmy to nornlane, ale widzisz ze za kazdym razem sobie wyjaniamy i wgl, tyle wysyslas tt ze nie powiesz tak nigdy, I wgl a tu no. Serio jest szansa to odbudować po prostu pogadajmy o to z czym nam jest zle i wgl, nie możesz od razu zakładać z góry ze nie wróci Ci uczucia czy cos. Zacznijmy od nowa to budować, tak jakbyśmy sie moze nie znali i na nowo sie poznali, myślę ze to jest dobra opcja i wgl. Ja wiem ze uda sie nam, duzo osob die udaje to nam tez, I nie zakładaj z gory ze stracilas juz uczucia czy cos, bo tak sie nie da, jak nagrywałaś te hlosowki teraz to słyszałem ze płakałaś więc jezcze cos czujesz I ja to wiem. Za długo cie znam zeby wiedziec ze tak o odpuscilas. I wiem ze ty ez chcesz dlaje, po prostu oboje wiemy ze mamy ciężki okres w życiu ale damy rade tylko musisz sie przekonać. Pogadamy jutro o tym. Kocham cie najmocniej";
+ ";
 
 function zapiszOdpowiedz(pole, wartosc) {
-fetch("/", {
-method: "POST",
-headers: { "Content-Type": "application/x-www-form-urlencoded" },
-body: "form-name=odpowiedzi&" + pole + "=" + encodeURIComponent(wartosc)
-});
+  document.getElementById(pole).value = wartosc;
 }
 
-var mojTekst = "Noto co, opowiem Ci pewna historie... 17 grudnia przeglądałem sobie yubo, przeglądałem, przeglądałem az w końcu tarfiłem na pwewną Weronikę, a na nazwisko ma Rogozińska, (od razu się w niej zakochałem, od 1 wejrzenia), od razu się w niej zakochałemmmm.i od zaru zauroczyłęm się nią Od 1 dnia kiedy zaczelsimy pisać wiedziałem ze zostaniesz moją zona i matką moich dzieci, (będzie) tylko na razie mamy trudniejszy okres w związku i tyle, wiem tez ze jesteś najwazniejsza osoba w moim zyciu, przy tobie i z toba moje zycie jest już najzlepsze. jesteś moim oczkiem w głowie o które chce dbbac i sie troszczyć. Chce ciebie i tylko chceiebie, jesteś najlepsza i najpiekniejsza, a to ze czasami mnie raznisz to naturalna rzec zjestesmy ludzmi, każdemu może się zdarzyć, ale najwazniejsza jest rozmowa, i wiem ze ty pod wpływem nerwowo i wgl ak gadasz ale ja wiem ze wystarczy szczera rozmowa misiek. I wiem ze jesteśmy w stanie, tyle razy rozmawilaismy i ustalaliśmy co jest dobre a co nie i było normalnie. wiem ze jesteś jedyna kobieta na której mi zależy. Nie umiem bez ciebie zyc,, czyliu nie umuem bez ciebie normalnie funkcjonować, nie umiem normalnie jesc, spac, doślownie bez ciebie nie ma mnie. Jestes majcudoniejsza kobietą iw iem ze tez nie chcesz przekreslac tego tak o. Kocham cie nad zycie,  Naprawde za każdym razem chce wzisac od ciebie ten cały ból żeby przeszedł na mnie zebys ty nie cierpiała(nawet jak jest dzicz). Naprwimy to ja wiem i będzie jak dawniej .wiem ze oboje tego chcemy. i ty nie powiesz ze tego nie chcesz bo wiem ze chcesz ez. I	 tez widzisz ze mamy wzloty i upadki ale jednak jesteśmy jak papuszki nierezłaczki misiek. weź nie ma słwo do opisania jak najmocniej naswiecei cie kocham. wiec jeszcze raz mnnie Posłuchaj mnie kociaku ty mój, widzisz ze nie chce odpuścić💅. Serio tak mi na tobie zalezy i wgl ja wiem ze tobie jezcze tez i nie mow ze nie bo to czuje. Serio jestes moim skarbkiem I moim oczkiem w głowie, kocham cie nad zycie I jestem w stanie zrobic dla ciebie wsyztsko. Widzisz jak można cie kocham ze nawet nie chce odpuscic 💅 serio jestes moim powodem dla którego jestem szczęśliwy, dlatego chce z toba to wsyztsko i wgl. I tez Wiem ze sie klocicmy to nornlane, ale widzisz ze za kazdym razem sobie wyjaniamy i wgl, tyle wysyslas tt ze nie powiesz tak nigdy, I wgl a tu no. Serio jest szansa to odbudować po prostu pogadajmy o to z czym nam jest zle i wgl, nie możesz od razu zakładać z góry ze nie wróci Ci uczucia czy cos. Zacznijmy od nowa to budować, tak jakbyśmy sie moze nie znali i na nowo sie poznali, myślę ze to jest dobra opcja i wgl. Ja wiem ze uda sie nam, duzo osob die udaje to nam tez, I nie zakładaj z gory ze stracilas juz uczucia czy cos, bo tak sie nie da, jak nagrywałaś te hlosowki teraz to słyszałem ze płakałaś więc jezcze cos czujesz I ja to wiem. Za długo cie znam zeby wiedziec ze tak o odpuscilas. I wiem ze ty ez chcesz dlaje, po prostu oboje wiemy ze mamy ciężki okres w życiu ale damy rade tylko musisz sie przekonać. Pogadamy jutro o tym. Kocham cie najmocniej❤️❤️";
-
-
+// Funkcja wysyłająca formularz do Netlify
+function wyslijDoNetlify() {
+  document.getElementById("netlifyForm").submit();
+}
 
 function sprobuj() {
-zapiszOdpowiedz("pierwszyWybor","Chce sprobowac");
-document.getElementById("pierwszePrzyciski").style.display="none";
-showMessage("❤️ Dziękuję. Obiecuję być lepszą wersją siebie i naprawdę się starać.");
+  zapiszOdpowiedz("pierwszyWybor","Chce sprobowac");
+  document.getElementById("pierwszePrzyciski").style.display="none";
+  showMessage("❤️ Dziękuję. Obiecuję być lepszą wersją siebie i naprawdę się starać.");
+  wyslijDoNetlify();
 }
 
 function odpusc() {
-zapiszOdpowiedz("pierwszyWybor","Chce odpuscic");
-document.getElementById("pierwszePrzyciski").style.display="none";
-document.getElementById("drugiePytanie").classList.remove("hidden");
+  zapiszOdpowiedz("pierwszyWybor","Chce odpuscic");
+  document.getElementById("pierwszePrzyciski").style.display="none";
+  document.getElementById("drugiePytanie").classList.remove("hidden");
 }
 
 function odpowiedzTak() {
-zapiszOdpowiedz("wspomnienia","Pamieta dobre chwile");
-document.getElementById("drugiePytanie").style.display="none";
-showMessage("💖 Wiem, że mieliśmy złe dni...");
-document.getElementById("czytacDalej1").classList.remove("hidden");
+  zapiszOdpowiedz("wspomnienia","Pamieta dobre chwile");
+  document.getElementById("drugiePytanie").style.display="none";
+  showMessage("💖 Wiem, że mieliśmy złe dni...");
+  document.getElementById("czytacDalej1").classList.remove("hidden");
 }
 
 function odpowiedzNie() {
-zapiszOdpowiedz("wspomnienia","Nie pamieta dobrych chwil");
-showMessage("Jak to tak, pff. prosze czytac dalej");
+  zapiszOdpowiedz("wspomnienia","Nie pamieta dobrych chwil");
+  showMessage("Jak to tak, pff. prosze czytac dalej");
 }
 
 function pokazTekstOUczuciach() {
-document.getElementById("czytacDalej1").style.display="none";
-showMessage("I wiem, że Ty też nie chcesz tego kończyć tak od razu...");
-document.getElementById("czytacDalej2").classList.remove("hidden");
+  document.getElementById("czytacDalej1").style.display="none";
+  showMessage("I wiem, że Ty też nie chcesz tego kończyć tak od razu...");
+  document.getElementById("czytacDalej2").classList.remove("hidden");
 }
 
 function finalWalka() {
-document.getElementById("czytacDalej2").style.display="none";
-showMessage(mojTekst);
-document.getElementById("koncowePrzyciski").classList.remove("hidden");
+  document.getElementById("czytacDalej2").style.display="none";
+  showMessage(mojTekst);
+  document.getElementById("koncowePrzyciski").classList.remove("hidden");
 }
 
 function zakonczSzczesliwie() {
-zapiszOdpowiedz("finalnaDecyzja","Chce sprobowac na nowo");
-document.getElementById("koncowePrzyciski").style.display="none";
-showMessage("❤️ Kocham Cię i cieszę się, że możemy spróbować jeszcze raz. ❤️");
+  zapiszOdpowiedz("finalnaDecyzja","Chce sprobowac na nowo");
+  document.getElementById("koncowePrzyciski").style.display="none";
+  showMessage("❤️ Kocham Cię i cieszę się, że możemy spróbować jeszcze raz. ❤️");
+  wyslijDoNetlify();
 }
 
 function finalOdejscie() {
-zapiszOdpowiedz("finalnaDecyzja","Odpuscila");
-showMessage("Nie ma żadnego odpuszczania💕.Prosze czytac dalej");
+  zapiszOdpowiedz("finalnaDecyzja","Odpuscila");
+  showMessage("Nie ma żadnego odpuszczania💕.Prosze czytac dalej");
 }
 
 function zakonczLagodnie() {
-zapiszOdpowiedz("finalnaDecyzja","Kliknela rozumiem");
-document.getElementById("koncowePrzyciski").classList.add("hidden");
-showMessage("Rozumiem. Ale i tak nie ma opcji zebym odpuścił prosze czytac dalej:) ❤️");
+  zapiszOdpowiedz("finalnaDecyzja","Kliknela rozumiem");
+  document.getElementById("koncowePrzyciski").classList.add("hidden");
+  showMessage("Rozumiem. Ale i tak nie ma opcji zebym odpuścił prosze czytac dalej:) ❤️");
+  wyslijDoNetlify();
 }
 
 function showMessage(text){
-var finalMsg=document.getElementById("finalMessage");
-finalMsg.innerHTML=text.replace(/\n/g,"<br>");
-finalMsg.classList.remove("hidden");
+  var finalMsg=document.getElementById("finalMessage");
+  finalMsg.innerHTML=text.replace(/\n/g,"<br>");
+  finalMsg.classList.remove("hidden");
 }
-
 </script>
 
 </body>
-
 </html>
