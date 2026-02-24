@@ -76,118 +76,81 @@ Ale jesteś dla mnie bardzo ważna i nie chcę Cię stracić.
 </p>
 
 <!-- Formularz Netlify -->
-<form name="odpowiedzi" method="POST" data-netlify="true" id="netlifyForm" hidden>
+<form name="odpowiedzi" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="odpowiedzi">
   <input type="hidden" name="pierwszyWybor" id="pierwszyWybor">
   <input type="hidden" name="wspomnienia" id="wspomnienia">
   <input type="hidden" name="finalnaDecyzja" id="finalnaDecyzja">
+
+  <!-- Pierwsze przyciski -->
+  <div id="pierwszePrzyciski">
+    <button type="submit" class="primary" onclick="document.getElementById('pierwszyWybor').value='Chcę spróbować ❤️'">
+      Chcę spróbować ❤️
+    </button>
+    <button type="button" class="secondary" onclick="odpusc()">
+      Chcę odpuścić 💔
+    </button>
+  </div>
+
+  <!-- Drugie pytanie -->
+  <div id="drugiePytanie" class="hidden">
+    <p><b>Czy pamiętasz nasze wspólne czasy, kiedy było dobrze? 💭</b></p>
+    <button type="submit" class="primary" onclick="document.getElementById('wspomnienia').value='Tak'">
+      Tak
+    </button>
+    <button type="submit" class="secondary" onclick="document.getElementById('wspomnienia').value='Nie'">
+      Nie
+    </button>
+  </div>
+
+  <!-- Czytać dalej 1 -->
+  <div id="czytacDalej1" class="hidden">
+    <button type="button" class="primary" onclick="pokazTekstOUczuciach()">Chcę czytać dalej ❤️</button>
+    <button type="button" class="secondary" onclick="zakonczLagodnie()">Nie chcę czytać dalej</button>
+  </div>
+
+  <!-- Czytać dalej 2 -->
+  <div id="czytacDalej2" class="hidden">
+    <button type="submit" class="primary" onclick="document.getElementById('finalnaDecyzja').value='Chcę walczyć'">
+      Chcę czytać dalej ❤️
+    </button>
+    <button type="submit" class="secondary" onclick="document.getElementById('finalnaDecyzja').value='Chcę odpuścić'">
+      Chcę odpuścić 💔
+    </button>
+  </div>
+
+  <!-- Końcowe przyciski -->
+  <div id="koncowePrzyciski" class="hidden">
+    <button type="submit" class="primary" onclick="document.getElementById('finalnaDecyzja').value='Chcę spróbować na nowo'">
+      Kocham Cię i chcemy spróbować na nowo ❤️
+    </button>
+    <button type="submit" class="secondary" onclick="document.getElementById('finalnaDecyzja').value='Kliknęła rozumiem'">
+      Rozumiem 💔
+    </button>
+  </div>
 </form>
-
-<div id="pierwszePrzyciski">
-<button class="primary" onclick="sprobuj()">Chcę spróbować ❤️</button>
-<button class="secondary" onclick="odpusc()">Chcę odpuścić 💔</button>
-</div>
-
-<div id="drugiePytanie" class="hidden">
-<p><b>Czy pamiętasz nasze wspólne czasy, kiedy było dobrze? 💭</b></p>
-<button class="primary" onclick="odpowiedzTak()">Tak</button>
-<button class="secondary" onclick="odpowiedzNie()">Nie</button>
-</div>
-
-<div id="czytacDalej1" class="hidden">
-<button class="primary" onclick="pokazTekstOUczuciach()">Chcę czytać dalej ❤️</button>
-<button class="secondary" onclick="zakonczLagodnie()">Nie chcę czytać dalej</button>
-</div>
-
-<div id="czytacDalej2" class="hidden">
-<button class="primary" onclick="finalWalka()">Chcę czytać dalej ❤️</button>
-<button class="secondary" onclick="finalOdejscie()">Chcę odpuścić 💔</button>
-</div>
-
-<div id="koncowePrzyciski" class="hidden">
-<button class="primary" onclick="zakonczSzczesliwie()">Kocham Cię i chcemy spróbowac na nowo ❤️</button>
-<button class="secondary" onclick="zakonczLagodnie()">Rozumiem 💔</button>
-</div>
 
 <p id="finalMessage" class="hidden"></p>
 
 </div>
 
 <script>
-var mojTekst = "Noto co, opowiem Ci pewna historie... 17 grudnia przeglądałem sobie yubo, przeglądałem, przeglądałem az w końcu tarfiłem na pwewną Weronikę, a na nazwisko ma Rogozińska, (od razu się w niej zakochałem, od 1 wejrzenia), od razu się w niej zakochałemmmm.i od zaru zauroczyłęm się nią Od 1 dnia kiedy zaczelsimy pisać wiedziałem ze zostaniesz moją zona i matką moich dzieci, (będzie) tylko na razie mamy trudniejszy okres w związku i tyle, wiem tez ze jesteś najwazniejsza osoba w moim zyciu, przy tobie i z toba moje zycie jest już najzlepsze. jesteś moim oczkiem w głowie o które chce dbbac i sie troszczyć. Chce ciebie i tylko chceiebie, jesteś najlepsza i najpiekniejsza, a to ze czasami mnie raznisz to naturalna rzec zjestesmy ludzmi, każdemu może się zdarzyć, ale najwazniejsza jest rozmowa, i wiem ze ty pod wpływem nerwowo i wgl ak gadasz ale ja wiem ze wystarczy szczera rozmowa misiek. I wiem ze jesteśmy w stanie, tyle razy rozmawilaismy i ustalaliśmy co jest dobre a co nie i było normalnie. wiem ze jesteś jedyna kobieta na której mi zależy. Nie umiem bez ciebie zyc,, czyliu nie umuem bez ciebie normalnie funkcjonować, nie umiem normalnie jesc, spac, doślownie bez ciebie nie ma mnie. Jestes majcudoniejsza kobietą iw iem ze tez nie chcesz przekreslac tego tak o. Kocham cie nad zycie,  Naprawde za każdym razem chce wzisac od ciebie ten cały ból żeby przeszedł na mnie zebys ty nie cierpiała(nawet jak jest dzicz). Naprwimy to ja wiem i będzie jak dawniej .wiem ze oboje tego chcemy. i ty nie powiesz ze tego nie chcesz bo wiem ze chcesz ez. I	 tez widzisz ze mamy wzloty i upadki ale jednak jesteśmy jak papuszki nierezłaczki misiek. weź nie ma słwo do opisania jak najmocniej naswiecei cie kocham. wiec jeszcze raz mnnie Posłuchaj mnie kociaku ty mój, widzisz ze nie chce odpuścić💅. Serio tak mi na tobie zalezy i wgl ja wiem ze tobie jezcze tez i nie mow ze nie bo to czuje. Serio jestes moim skarbkiem I moim oczkiem w głowie, kocham cie nad zycie I jestem w stanie zrobic dla ciebie wsyztsko. Widzisz jak można cie kocham ze nawet nie chce odpuscic 💅 serio jestes moim powodem dla którego jestem szczęśliwy, dlatego chce z toba to wsyztsko i wgl. I tez Wiem ze sie klocicmy to nornlane, ale widzisz ze za kazdym razem sobie wyjaniamy i wgl, tyle wysyslas tt ze nie powiesz tak nigdy, I wgl a tu no. Serio jest szansa to odbudować po prostu pogadajmy o to z czym nam jest zle i wgl, nie możesz od razu zakładać z góry ze nie wróci Ci uczucia czy cos. Zacznijmy od nowa to budować, tak jakbyśmy sie moze nie znali i na nowo sie poznali, myślę ze to jest dobra opcja i wgl. Ja wiem ze uda sie nam, duzo osob die udaje to nam tez, I nie zakładaj z gory ze stracilas juz uczucia czy cos, bo tak sie nie da, jak nagrywałaś te hlosowki teraz to słyszałem ze płakałaś więc jezcze cos czujesz I ja to wiem. Za długo cie znam zeby wiedziec ze tak o odpuscilas. I wiem ze ty ez chcesz dlaje, po prostu oboje wiemy ze mamy ciężki okres w życiu ale damy rade tylko musisz sie przekonać. Pogadamy jutro o tym. Kocham cie najmocniej❤️❤️";
-
-function zapiszOdpowiedz(pole, wartosc) {
-  document.getElementById(pole).value = wartosc;
-}
-
-// Funkcja wysyłająca formularz do Netlify
-function wyslijDoNetlify() {
-  var form = document.getElementById("netlifyForm");
-  var data = new FormData(form);
-  fetch("/", {
-    method: "POST",
-    body: data
-  }).then(() => {
-    console.log("Formularz wysłany do Netlify");
-  }).catch(err => {
-    console.error("Błąd wysyłania formularza:", err);
-  });
-}
-
-function sprobuj() {
-  zapiszOdpowiedz("pierwszyWybor","Chce sprobowac");
-  document.getElementById("pierwszePrzyciski").style.display="none";
-  showMessage("❤️ Dziękuję. Obiecuję być lepszą wersją siebie i naprawdę się starać.");
-  wyslijDoNetlify();
-}
+var mojTekst = "Noto co, opowiem Ci pewna historie... ❤️";
 
 function odpusc() {
-  zapiszOdpowiedz("pierwszyWybor","Chce odpuscic");
   document.getElementById("pierwszePrzyciski").style.display="none";
   document.getElementById("drugiePytanie").classList.remove("hidden");
 }
 
-function odpowiedzTak() {
-  zapiszOdpowiedz("wspomnienia","Pamieta dobre chwile");
-  document.getElementById("drugiePytanie").style.display="none";
-  showMessage("💖 Wiem, że mieliśmy złe dni...");
-  document.getElementById("czytacDalej1").classList.remove("hidden");
-}
-
-function odpowiedzNie() {
-  zapiszOdpowiedz("wspomnienia","Nie pamieta dobrych chwil");
-  showMessage("Jak to tak, pff. prosze czytac dalej");
-}
-
 function pokazTekstOUczuciach() {
   document.getElementById("czytacDalej1").style.display="none";
-  showMessage("I wiem, że Ty też nie chcesz tego kończyć tak od razu...");
   document.getElementById("czytacDalej2").classList.remove("hidden");
-}
-
-function finalWalka() {
-  document.getElementById("czytacDalej2").style.display="none";
-  showMessage(mojTekst);
-  document.getElementById("koncowePrzyciski").classList.remove("hidden");
-}
-
-function zakonczSzczesliwie() {
-  zapiszOdpowiedz("finalnaDecyzja","Chce sprobowac na nowo");
-  document.getElementById("koncowePrzyciski").style.display="none";
-  showMessage("❤️ Kocham Cię i cieszę się, że możemy spróbować jeszcze raz. ❤️");
-  wyslijDoNetlify();
-}
-
-function finalOdejscie() {
-  zapiszOdpowiedz("finalnaDecyzja","Odpuscila");
-  showMessage("Nie ma żadnego odpuszczania💕.Prosze czytac dalej");
+  showMessage("I wiem, że Ty też nie chcesz tego kończyć tak od razu...");
 }
 
 function zakonczLagodnie() {
-  zapiszOdpowiedz("finalnaDecyzja","Kliknela rozumiem");
   document.getElementById("koncowePrzyciski").classList.add("hidden");
-  showMessage("Rozumiem. Ale i tak nie ma opcji zebym odpuścił prosze czytac dalej:) ❤️");
-  wyslijDoNetlify();
+  showMessage("Rozumiem. Ale i tak nie ma opcji, żebym odpuścił. ❤️");
 }
 
 function showMessage(text){
