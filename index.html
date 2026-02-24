@@ -122,7 +122,16 @@ function zapiszOdpowiedz(pole, wartosc) {
 
 // Funkcja wysyłająca formularz do Netlify
 function wyslijDoNetlify() {
-  document.getElementById("netlifyForm").submit();
+  var form = document.getElementById("netlifyForm");
+  var data = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    body: data
+  }).then(() => {
+    console.log("Formularz wysłany do Netlify");
+  }).catch(err => {
+    console.error("Błąd wysyłania formularza:", err);
+  });
 }
 
 function sprobuj() {
